@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Container, Table, Spinner, Alert } from "react-bootstrap";
+import { Container, Table, Spinner, Alert, Button } from "react-bootstrap";
 
 function VisualizeUsers() {
   const [users, setUsers] = useState([]);
@@ -7,6 +7,37 @@ function VisualizeUsers() {
   const [error, setError] = useState("");
   const token = localStorage.getItem("loginToken");
   const usersApi = "http://localhost:8080/utenti?page=0&size=10";
+  const eliminaUtente = async (u) => {
+    const deleteApi = `http://localhost:8080/utenti/${u.id}`;
+    const choice = window.confirm("Confermi l'eliminazione dell'utente?");
+    if (!choice) return;
+    if (u.ruolo === "ADMIN") {
+      alert("Non puoi eliminare un utente con ruolo ADMIN");
+      return;
+    }
+
+    try {
+      const res = await fetch(deleteApi, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (res.ok) {
+        alert("Eliminazione avvenuta con successo");
+        await res.json();
+      } else {
+        const errorData = await res.json().catch(() => null);
+        alert(
+          errorData && errorData.message
+            ? `Errore nell'eliminazione: ${errorData.message}`
+            : "Errore nell'eliminazione"
+        );
+      }
+    } catch (error) {
+      console.log("Errore di rete: " + error.message);
+    }
+  };
 
   useEffect(() => {
     setLoading(true);
@@ -64,6 +95,7 @@ function VisualizeUsers() {
                   <th>Cognome</th>
                   <th>Email</th>
                   <th>Ruolo</th>
+                  <th>Elimina</th>
                 </tr>
               </thead>
               <tbody>
@@ -74,6 +106,15 @@ function VisualizeUsers() {
                     <td>{u.cognome}</td>
                     <td>{u.email}</td>
                     <td>{u.ruolo}</td>
+                    <td>
+                      <Button
+                        onClick={() => eliminaUtente(u)}
+                        variant="danger"
+                        size="sm"
+                      >
+                        <i className="bi bi-trash"></i>
+                      </Button>
+                    </td>
                   </tr>
                 ))}
               </tbody>

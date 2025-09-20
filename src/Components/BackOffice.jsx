@@ -3,7 +3,7 @@ import { useState } from "react";
 
 function BackOffice() {
   const token = localStorage.getItem("loginToken");
-  const user = localStorage.getItem("loginUser");
+  const user = JSON.parse(localStorage.getItem("loginUser"));
   console.log("Utente letto da localStorage:", user);
   console.log("Token letto da localStorage:", token);
 
