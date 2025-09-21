@@ -14,6 +14,7 @@ import UserProfile from "./Components/UserProfile";
 import AdminProfile from "./Components/AdminProfile";
 import LoginPersist from "./Components/LoginPersist";
 import VisualizeUsers from "./Components/VisualizeUsers";
+import UpdateProduct from "./Components/UpdateProduct";
 import "./App.css";
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
           <Route path="/adminprofile" element={<AdminProfile />} />
           <Route path="/userprofile" element={<UserProfile />} />
           <Route path="/backoffice" element={<BackOffice />} />
+          <Route path="/updateproduct" element={<UpdateProduct />} />
           <Route path="/visualizeusers" element={<VisualizeUsers />} />
         </Routes>
         <MyFooter />

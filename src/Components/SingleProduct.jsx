@@ -63,7 +63,13 @@ const SingleProduct = ({ data }) => {
         </Button>
         {user && user.ruolo === "ADMIN" && (
           <div className="d-flex gap-2 justify-content-center mt-3">
-            <Button variant="dark" className="w-100">
+            <Button
+              onClick={() => {
+                navigate("/updateproduct", { state: { data } });
+              }}
+              variant="dark"
+              className="w-100"
+            >
               Modifica
             </Button>
             <Button
