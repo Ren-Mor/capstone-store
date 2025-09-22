@@ -87,7 +87,7 @@ function VisualizeUsers() {
           {loading && <Spinner animation="border" />}
           {error && <Alert variant="danger">{error}</Alert>}
           {!loading && !error && (
-            <Table striped hover variant="dark">
+            <Table striped hover responsive variant="dark">
               <thead>
                 <tr>
                   <th>Id</th>
