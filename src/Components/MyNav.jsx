@@ -19,6 +19,8 @@ function MyNav() {
   const user = useSelector((state) => state.login.user);
 
   const handleLogout = () => {
+    const choice = window.confirm("Sei sicuro di voler uscire?");
+    if (!choice) return;
     dispatch({ type: "LOGOUT" });
     localStorage.removeItem("loginToken");
     localStorage.removeItem("loginUser");
