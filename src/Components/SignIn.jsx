@@ -36,8 +36,6 @@ function SignIn() {
         } else {
           navigate("/userprofile");
         }
-        console.log(data);
-        console.log(JSON.parse(localStorage.getItem("loginUser")));
       }
     } catch (error) {
       console.error("Errore nella richiesta del profilo utente:", error);
