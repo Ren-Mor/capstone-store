@@ -18,6 +18,7 @@ import UpdateProduct from "./Components/UpdateProduct";
 import UpdateUser from "./Components/UpdateUser";
 import ProtectionRoute from "./Components/ProtectionRoute";
 import ConfirmLogout from "./Components/ConfirmLogout";
+import YouBetterRun from "./Components/YouBetterRun";
 import "./App.css";
 
 function App() {
@@ -48,7 +49,7 @@ function App() {
         <MyNav />
 
         <Routes>
-          <Route path="/youbetterrun"></Route>
+          <Route path="/youbetterrun" element={<YouBetterRun />}></Route>
           <Route path="/" element={<Hero />} />
           <Route path="/cart" element={<Cart />} />
           <Route
