@@ -37,7 +37,7 @@ const UserProfile = function () {
                 </li>
                 <li>
                   <Link className="text-decoration-none text-black fw-bold">
-                    Dati profilo
+                    Modifica profilo
                   </Link>
                 </li>
                 <li>

@@ -15,7 +15,9 @@ import AdminProfile from "./Components/AdminProfile";
 import LoginPersist from "./Components/LoginPersist";
 import VisualizeUsers from "./Components/VisualizeUsers";
 import UpdateProduct from "./Components/UpdateProduct";
+import RouteProtection from "./Components/ProtectionRoute";
 import "./App.css";
+import ProtectionRoute from "./Components/ProtectionRoute";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -44,6 +46,7 @@ function App() {
         <MyNav />
 
         <Routes>
+          <Route path="/youbetterrun"></Route>
           <Route path="/" element={<Hero />} />
           <Route path="/cart" element={<Cart />} />
           <Route
@@ -54,11 +57,39 @@ function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/cart/checkout" element={<Checkout />} />
-          <Route path="/adminprofile" element={<AdminProfile />} />
+          <Route
+            path="/adminprofile"
+            element={
+              <ProtectionRoute>
+                <AdminProfile />
+              </ProtectionRoute>
+            }
+          />
           <Route path="/userprofile" element={<UserProfile />} />
-          <Route path="/backoffice" element={<BackOffice />} />
-          <Route path="/updateproduct" element={<UpdateProduct />} />
-          <Route path="/visualizeusers" element={<VisualizeUsers />} />
+          <Route
+            path="/backoffice"
+            element={
+              <ProtectionRoute>
+                <BackOffice />
+              </ProtectionRoute>
+            }
+          />
+          <Route
+            path="/updateproduct"
+            element={
+              <ProtectionRoute>
+                <UpdateProduct />
+              </ProtectionRoute>
+            }
+          />
+          <Route
+            path="/visualizeusers"
+            element={
+              <ProtectionRoute>
+                <VisualizeUsers />
+              </ProtectionRoute>
+            }
+          />
         </Routes>
         <MyFooter />
       </BrowserRouter>
