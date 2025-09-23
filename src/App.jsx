@@ -59,6 +59,7 @@ function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/cart/checkout" element={<Checkout />} />
+          <Route path="/userprofile" element={<UserProfile />} />
           <Route path="/confirm-logout" element={<ConfirmLogout />} />
           <Route
             path="/adminprofile"

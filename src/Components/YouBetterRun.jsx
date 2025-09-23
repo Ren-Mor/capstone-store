@@ -1,5 +1,5 @@
 function YouBetterRun() {
-  return <div>You better run!</div>;
+  return;
 }
 
 export default YouBetterRun;
