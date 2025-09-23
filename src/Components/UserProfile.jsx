@@ -36,7 +36,10 @@ const UserProfile = function () {
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-decoration-none text-black fw-bold">
+                  <Link
+                    to="updateuser"
+                    className="text-decoration-none text-black fw-bold"
+                  >
                     Modifica profilo
                   </Link>
                 </li>

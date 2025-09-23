@@ -15,6 +15,7 @@ import AdminProfile from "./Components/AdminProfile";
 import LoginPersist from "./Components/LoginPersist";
 import VisualizeUsers from "./Components/VisualizeUsers";
 import UpdateProduct from "./Components/UpdateProduct";
+import UpdateUser from "./Components/UpdateUser";
 import ProtectionRoute from "./Components/ProtectionRoute";
 import ConfirmLogout from "./Components/ConfirmLogout";
 import "./App.css";
@@ -67,7 +68,7 @@ function App() {
               </ProtectionRoute>
             }
           />
-          <Route path="/userprofile" element={<UserProfile />} />
+
           <Route
             path="/backoffice"
             element={
@@ -92,6 +93,7 @@ function App() {
               </ProtectionRoute>
             }
           />
+          <Route path="/updateuser" element={<UpdateUser />} />
         </Routes>
         <MyFooter />
       </BrowserRouter>

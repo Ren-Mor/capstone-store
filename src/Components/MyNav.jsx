@@ -38,7 +38,7 @@ function MyNav() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-5 gap-4">
+          <div className="d-flex flex-row justify-content-center justify-content-lg-start text-light gap-4">
             <NavLink
               to="/"
               className={({ isActive }) =>
@@ -56,21 +56,24 @@ function MyNav() {
             >
               Sfoglia prodotti
             </NavLink>
-          </Nav>
-          <Row className="ms-auto">
-            <Col>
-              <Form className="ms-auto" onSubmit={handleSearchSubmit}>
-                <Form.Control
-                  type="search"
-                  placeholder="Cerca..."
-                  className="rounded-pill"
-                  aria-label="Search"
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                />
-              </Form>
-            </Col>
-            <Col xs="auto">
+          </div>
+
+          <Form
+            className="d-flex ms-auto me-3 mb-3 mb-lg-0 mt-3 mt-lg-0 justify-content-center"
+            onSubmit={handleSearchSubmit}
+          >
+            <Form.Control
+              type="search"
+              placeholder="Cerca..."
+              className="rounded-pill mw-300"
+              aria-label="Search"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </Form>
+
+          <Row>
+            <Col className="d-flex justify-content-center align-items-center">
               <Nav className="d-flex flex-row gap-4 align-items-center">
                 <NavLink to="/cart" className="position-relative">
                   <i className="bi bi-cart-fill fs-4"></i>

@@ -26,7 +26,10 @@ const AdminProfile = function () {
             <Row>
               <ul className="list-unstyled">
                 <li>
-                  <Link className="text-decoration-none text-black fw-bold">
+                  <Link
+                    to={"/updateuser"}
+                    className="text-decoration-none text-black fw-bold"
+                  >
                     Modifica dati profilo
                   </Link>
                 </li>
