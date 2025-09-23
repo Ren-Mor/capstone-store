@@ -15,9 +15,9 @@ import AdminProfile from "./Components/AdminProfile";
 import LoginPersist from "./Components/LoginPersist";
 import VisualizeUsers from "./Components/VisualizeUsers";
 import UpdateProduct from "./Components/UpdateProduct";
-import RouteProtection from "./Components/ProtectionRoute";
-import "./App.css";
 import ProtectionRoute from "./Components/ProtectionRoute";
+import ConfirmLogout from "./Components/ConfirmLogout";
+import "./App.css";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -39,6 +39,7 @@ function App() {
     }
     fetchProducts();
   }, []);
+
   return (
     <>
       <BrowserRouter>
@@ -57,6 +58,7 @@ function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/cart/checkout" element={<Checkout />} />
+          <Route path="/confirm-logout" element={<ConfirmLogout />} />
           <Route
             path="/adminprofile"
             element={

@@ -1,16 +1,7 @@
-import {
-  Navbar,
-  Nav,
-  Container,
-  Form,
-  Row,
-  Col,
-  Badge,
-  Button,
-} from "react-bootstrap";
+import { Navbar, Nav, Container, Form, Row, Col, Badge } from "react-bootstrap";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import "../App.css";
 
 function MyNav() {
@@ -18,16 +9,9 @@ function MyNav() {
   const tokenStatus = useSelector((state) => state.login.token);
   const user = useSelector((state) => state.login.user);
 
-  const handleLogout = () => {
-    const choice = window.confirm("Sei sicuro di voler uscire?");
-    if (!choice) return;
-    dispatch({ type: "LOGOUT" });
-    localStorage.removeItem("loginToken");
-    localStorage.removeItem("loginUser");
-  };
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (search.trim()) {
@@ -111,13 +95,8 @@ function MyNav() {
                       className="bi bi-person-circle fs-4"
                     ></i>
 
-                    <Link className="text-decoration-none" to="/">
-                      <span
-                        onClick={handleLogout}
-                        className="text-white access ms-2"
-                      >
-                        Log out
-                      </span>
+                    <Link className="text-decoration-none" to="/confirm-logout">
+                      <span className="text-white access ms-2">Log out</span>
                     </Link>
                   </Nav>
                 )}
