@@ -48,8 +48,8 @@ function SignUp() {
   return (
     <>
       <section className="position-fixed start-0 top-0 z-n1 opacity-50 hero-background text-white text-center d-flex flex-column justify-content-center align-items-center"></section>
-      <Container className="d-flex justify-content-center align-items-center vh-100">
-        <Form onSubmit={handleSignup}>
+      <Container className="d-flex justify-content-center align-items-center mt-5">
+        <Form className="mt-5 pt-2" onSubmit={handleSignup}>
           <Form.Label className="fw-bold">Nome</Form.Label>
           <Form.Control
             name="nome"
@@ -66,14 +66,6 @@ function SignUp() {
             style={{ width: "300px" }}
             required
           />
-          <Form.Label className="fw-bold">Username</Form.Label>
-          <Form.Control
-            name="username"
-            type="text"
-            placeholder="Username"
-            style={{ width: "300px" }}
-            required
-          />
           <Form.Label className="fw-bold">Email</Form.Label>
           <Form.Control
             name="email"
@@ -82,14 +74,14 @@ function SignUp() {
             style={{ width: "300px" }}
             required
           />
-          <Form.Label className="mt-3 fw-bold">Password</Form.Label>
+          <Form.Label className="mt-2 fw-bold">Password</Form.Label>
           <Form.Control
             name="password"
             type="password"
             placeholder="Password"
             required
           />
-          <Form.Label className="mt-3 fw-bold">Conferma password</Form.Label>
+          <Form.Label className="mt-2 fw-bold">Conferma password</Form.Label>
           <Form.Control
             name="confirm-password"
             type="password"

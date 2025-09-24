@@ -3,7 +3,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 
 function MyFooter() {
   return (
-    <footer className="d-flex bg-dark mt-2 fixed-bottom py-4">
+    <footer className="d-flex bg-dark fixed-bottom py-3 mb-0 vh-10">
       <div className="text-center text-white m-auto p-2 fs-5">
         <strong> HW STORE </strong>{" "}
         <div className="d-inline-block text-center text-nowrap fs-6">

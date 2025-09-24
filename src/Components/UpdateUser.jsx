@@ -11,7 +11,6 @@ function UpdateUser() {
   async function handleSignup(e) {
     e.preventDefault();
     const formData = e.target.elements;
-    const username = formData.username.value;
     const nome = formData.nome.value;
     const cognome = formData.cognome.value;
     const email = formData.email.value;
@@ -31,7 +30,7 @@ function UpdateUser() {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ username, nome, cognome, email, password }),
+        body: JSON.stringify({ nome, cognome, email, password }),
       });
       if (res.ok) {
         alert("Dati cambiati con successo");
@@ -71,15 +70,6 @@ function UpdateUser() {
             type="text"
             placeholder="Cognome"
             defaultValue={userData.cognome}
-            style={{ width: "300px" }}
-            required
-          />
-          <Form.Label className="fw-bold">Username</Form.Label>
-          <Form.Control
-            name="username"
-            type="text"
-            placeholder="Username"
-            defaultValue={userData.username}
             style={{ width: "300px" }}
             required
           />
