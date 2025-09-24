@@ -1,10 +1,11 @@
 import { Container, Form, Button } from "react-bootstrap";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 function UpdateUser() {
   const UpdateApi = "http://localhost:8080/utenti/me";
   const [loading, setLoading] = useState(false);
-
+  const dispatch = useDispatch();
   const userData = JSON.parse(localStorage.getItem("loginUser"));
   const token = localStorage.getItem("loginToken");
 
@@ -16,6 +17,7 @@ function UpdateUser() {
     const email = formData.email.value;
     const password = formData.password.value;
     const confirmPassword = formData["confirm-password"].value;
+    const updatedUser = { nome, cognome, email, password };
 
     if (password !== confirmPassword) {
       alert("Le password non coincidono.");
@@ -34,6 +36,7 @@ function UpdateUser() {
       });
       if (res.ok) {
         alert("Dati cambiati con successo");
+        dispatch({ type: "SET_USER", payload: updatedUser });
         await res.json();
       } else {
         const errorData = await res.json().catch(() => null);

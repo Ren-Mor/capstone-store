@@ -8,7 +8,6 @@ function SignUp() {
   async function handleSignup(e) {
     e.preventDefault();
     const formData = e.target.elements;
-    const username = formData.username.value;
     const nome = formData.nome.value;
     const cognome = formData.cognome.value;
     const email = formData.email.value;
@@ -25,7 +24,7 @@ function SignUp() {
       const res = await fetch(signUpApi, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, nome, cognome, email, password }),
+        body: JSON.stringify({ nome, cognome, email, password }),
       });
       if (res.ok) {
         alert("Registrazione avvenuta con successo");

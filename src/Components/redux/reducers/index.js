@@ -39,6 +39,16 @@ const cartReducer = (state = initialState, action) => {
         },
       };
     }
+    case "SET_USER": {
+      const updatedUser = action.payload;
+      return {
+        ...state,
+        login: {
+          ...state.login,
+          user: updatedUser,
+        },
+      };
+    }
     default:
       return state;
   }
