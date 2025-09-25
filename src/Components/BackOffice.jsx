@@ -45,6 +45,7 @@ function BackOffice() {
       });
       if (res.ok) {
         alert("Prodotto aggiunto con successo");
+        window.location.reload();
         await res.json();
         console.log("Token usato (OK):", token);
       } else {

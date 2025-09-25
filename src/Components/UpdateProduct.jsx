@@ -62,6 +62,7 @@ function UpdateProduct() {
       if (res.ok) {
         alert("Prodotto aggiornato con successo");
         updateImage(e);
+        window.location.reload();
         await res.json();
         console.log("Token usato (OK):", token);
       } else {

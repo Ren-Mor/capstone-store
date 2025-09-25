@@ -25,6 +25,7 @@ function VisualizeUsers() {
       });
       if (res.ok) {
         alert("Eliminazione avvenuta con successo");
+        window.location.reload();
         await res.json();
       } else {
         const errorData = await res.json().catch(() => null);
