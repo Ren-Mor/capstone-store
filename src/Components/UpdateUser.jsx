@@ -1,11 +1,13 @@
 import { Container, Form, Button } from "react-bootstrap";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function UpdateUser() {
   const UpdateApi = "http://localhost:8080/utenti/me";
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const userData = JSON.parse(localStorage.getItem("loginUser"));
   const token = localStorage.getItem("loginToken");
 
@@ -38,6 +40,11 @@ function UpdateUser() {
         alert("Dati cambiati con successo");
         dispatch({ type: "SET_USER", payload: updatedUser });
         await res.json();
+        if (userData.ruolo === "ADMIN") {
+          navigate("/adminprofile");
+        } else {
+          navigate("/userprofile");
+        }
       } else {
         const errorData = await res.json().catch(() => null);
         alert(
