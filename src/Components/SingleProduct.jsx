@@ -42,7 +42,7 @@ const SingleProduct = ({ data }) => {
 
   return (
     <Col key={data.id}>
-      <Card className="product-card mb-2 bg-light rounded-2 p-3 shadow border-0">
+      <Card className="product-card mb-2 mt-5 bg-light rounded-2 p-3 shadow border-0">
         <img
           className="w-100 "
           style={{ height: "190px", objectFit: "contain" }}
