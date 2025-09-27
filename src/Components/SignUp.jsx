@@ -27,7 +27,6 @@ function SignUp() {
         body: JSON.stringify({ nome, cognome, email, password }),
       });
       if (res.ok) {
-        alert("Registrazione avvenuta con successo");
         await res.json();
       } else {
         const errorData = await res.json().catch(() => null);

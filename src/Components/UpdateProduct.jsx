@@ -60,7 +60,6 @@ function UpdateProduct() {
         body: JSON.stringify(dto),
       });
       if (res.ok) {
-        alert("Prodotto aggiornato con successo");
         updateImage(e);
         window.location.reload();
         await res.json();

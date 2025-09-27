@@ -37,7 +37,6 @@ function UpdateUser() {
         body: JSON.stringify({ nome, cognome, email, password }),
       });
       if (res.ok) {
-        alert("Dati cambiati con successo");
         dispatch({ type: "SET_USER", payload: updatedUser });
         await res.json();
         if (userData.ruolo === "ADMIN") {

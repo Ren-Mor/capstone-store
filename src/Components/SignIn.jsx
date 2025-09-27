@@ -57,7 +57,6 @@ function SignIn() {
         body: JSON.stringify({ email, password }),
       });
       if (res.ok) {
-        alert("Accesso effettuato con successo");
         const data = await res.json();
         console.log(data);
         dispatch({
