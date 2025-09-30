@@ -45,3 +45,7 @@ body {
 .minw-350 {
   min-width: 350px;
 }
+
+.nav-link {
+  color: #fff !important;
+}

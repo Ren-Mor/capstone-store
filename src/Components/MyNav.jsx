@@ -15,7 +15,7 @@ function MyNav() {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (search.trim()) {
-      navigate("/prodotti", { state: { search } });
+      navigate("/prodotti/all", { state: { search } });
     }
   };
   const linkToProfile = () => {
@@ -27,36 +27,67 @@ function MyNav() {
   };
   return (
     <Navbar
-      expand="lg"
-      className="bg-body-tertiary mb-3 py-4 px-5 fixed-top"
+      expand="xl"
+      className="bg-body-tertiary mb-3 py-4 px-5 fixed-top text-nowrap"
       bg="dark"
       data-bs-theme="dark"
     >
       <Container fluid>
-        <Navbar.Brand href="/" className="me-5 fs-3 fw-bold">
+        <Navbar.Brand as={Link} to="/" className="me-5 fs-3 fw-bold">
           HW STORE
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <div className="d-flex flex-row justify-content-center justify-content-lg-start text-light gap-4">
+        <Navbar.Collapse id="basic-navbar-nav ">
+          <Nav className="gap-2 mx-2">
             <NavLink
-              to="/"
-              className={({ isActive }) =>
-                isActive ? "nav-link active" : "nav-link"
-              }
-              end
-            >
-              Home
-            </NavLink>
-            <NavLink
-              to="/prodotti"
+              to="/prodotti/cpu"
               className={({ isActive }) =>
                 isActive ? "nav-link active" : "nav-link"
               }
             >
-              Sfoglia prodotti
+              Processori
             </NavLink>
-          </div>
+            <NavLink
+              to="/prodotti/gpu"
+              className={({ isActive }) =>
+                isActive ? "nav-link active" : "nav-link"
+              }
+            >
+              Schede grafiche
+            </NavLink>
+            <NavLink
+              to="/prodotti/psu"
+              className={({ isActive }) =>
+                isActive ? "nav-link active" : "nav-link"
+              }
+            >
+              Alimentatori
+            </NavLink>
+            <NavLink
+              to="/prodotti/ram"
+              className={({ isActive }) =>
+                isActive ? "nav-link active" : "nav-link"
+              }
+            >
+              Memorie
+            </NavLink>
+            <NavLink
+              to="/prodotti/mb"
+              className={({ isActive }) =>
+                isActive ? "nav-link active" : "nav-link"
+              }
+            >
+              Schede madri
+            </NavLink>
+            <NavLink
+              to="/prodotti/case"
+              className={({ isActive }) =>
+                isActive ? "nav-link active" : "nav-link"
+              }
+            >
+              Case
+            </NavLink>
+          </Nav>
 
           <Form
             className="d-flex ms-auto me-3 mb-3 mb-lg-0 mt-3 mt-lg-0 justify-content-center"

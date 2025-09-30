@@ -1,9 +1,38 @@
 import { Col, Row, Container } from "react-bootstrap";
 import SingleProduct from "./SingleProduct";
 import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
-function ProductList({ categoria }) {
+function ProductList({ categoria, setCategory }) {
   const location = useLocation();
+  const { category } = useParams();
+
+  useEffect(() => {
+    if (category) {
+      const serverCategory = () => {
+        switch (category) {
+          case "cpu":
+            return "CPU";
+          case "gpu":
+            return "GPU";
+          case "psu":
+            return "POWER_SUPPLY";
+          case "case":
+            return "CASE";
+          case "mb":
+            return "MOTHERBOARD";
+          case "ram":
+            return "RAM";
+          case "all":
+            return "all";
+          default:
+            return "all";
+        }
+      };
+      setCategory(serverCategory());
+    }
+  }, [category, setCategory]);
   const searchQuery = location.state?.search || "";
   let filteredProducts = Array.isArray(categoria) ? categoria : [];
   if (searchQuery) {

@@ -23,13 +23,17 @@ import "./App.css";
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [category, setCategory] = useState("all");
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const res = await fetch("http://localhost:8080/products/all", {
-          method: "GET",
-          headers: { "Content-Type": "application/json" },
-        });
+        const res = await fetch(
+          `http://localhost:8080/products/category/${category}`,
+          {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+          }
+        );
         if (!res.ok) {
           throw new Error("Impossibile caricare i prodotti");
         }
@@ -40,7 +44,7 @@ function App() {
       }
     }
     fetchProducts();
-  }, []);
+  }, [category]);
 
   return (
     <>
@@ -53,9 +57,12 @@ function App() {
           <Route path="/" element={<Hero />} />
           <Route path="/cart" element={<Cart />} />
           <Route
-            path="/prodotti"
-            element={<ProductList categoria={products} />}
+            path="/prodotti/:category"
+            element={
+              <ProductList categoria={products} setCategory={setCategory} />
+            }
           />
+
           <Route path="/details/:productId" element={<ProductDetails />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
