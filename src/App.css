@@ -41,3 +41,7 @@ body {
 .mw-300 {
   max-width: 300px;
 }
+
+.minw-350 {
+  min-width: 350px;
+}

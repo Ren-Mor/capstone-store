@@ -1,7 +1,9 @@
 import { Container, Form, Button } from "react-bootstrap";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function SignUp() {
+  const navigate = useNavigate();
   const signUpApi = "http://localhost:8080/auth/register";
   const [loading, setLoading] = useState(false);
 
@@ -28,6 +30,7 @@ function SignUp() {
       });
       if (res.ok) {
         await res.json();
+        navigate("/signin");
       } else {
         const errorData = await res.json().catch(() => null);
         alert(
