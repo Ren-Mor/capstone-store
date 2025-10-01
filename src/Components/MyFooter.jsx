@@ -10,10 +10,10 @@ function MyFooter() {
           - Morelli Renato 2025 -
         </div>
         <div className="d-inline-block text-center text-nowrap ms-3 fs-6">
-          La nostra mail: renato@unamail.it -
+          La nostra mail: renatomorelli@hotmail.it -
         </div>
         <div className="d-inline-block text-center text-nowrap ms-3 fs-6">
-          Messaggiaci su Whatsapp: 3312324267
+          Messaggiaci su Whatsapp: unNumeroDiTelefono
         </div>
       </div>
     </footer>
