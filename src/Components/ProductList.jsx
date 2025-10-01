@@ -9,6 +9,10 @@ function ProductList({ categoria, setCategory }) {
   const { category } = useParams();
 
   useEffect(() => {
+    if (window.location.pathname === "/products/all") {
+      setCategory("all");
+      return;
+    }
     if (category) {
       const serverCategory = () => {
         switch (category) {

@@ -62,6 +62,12 @@ function App() {
               <ProductList categoria={products} setCategory={setCategory} />
             }
           />
+          <Route
+            path="/products/all"
+            element={
+              <ProductList categoria={products} setCategory={setCategory} />
+            }
+          />
 
           <Route path="/details/:productId" element={<ProductDetails />} />
           <Route path="/signin" element={<SignIn />} />

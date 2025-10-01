@@ -10,7 +10,7 @@ function Hero() {
       <h2 className="text-border">Il modo smart di giocare</h2>
       <h1 className="text-border">CREA IL TUO PC PERSONALIZZATO</h1>
       <h3 className="text-border">Esperienza perfetta</h3>
-      <NavLink to="/prodotti">
+      <NavLink to="/products/all">
         <Button className="btn btn-danger mt-4 px-3 fs-4">Inizia adesso</Button>
       </NavLink>
     </section>
