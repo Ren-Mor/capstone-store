@@ -31,7 +31,7 @@ function VisualizeUsers() {
         alert(
           errorData && errorData.message
             ? `Errore nell'eliminazione: ${errorData.message}`
-            : "Errore nell'eliminazione"
+            : "Errore nell'eliminazione",
         );
       }
     } catch (error) {
@@ -61,10 +61,7 @@ function VisualizeUsers() {
           }
         } else {
           const errorData = await res.json().catch(() => null);
-          const errorMsg =
-            errorData && errorData.message
-              ? errorData.message
-              : "Errore nel recupero utenti";
+          const errorMsg = errorData && errorData.message ? errorData.message : "Errore nel recupero utenti";
           setError(errorMsg);
           alert(errorMsg);
         }
@@ -107,11 +104,7 @@ function VisualizeUsers() {
                     <td>{u.email}</td>
                     <td>{u.ruolo}</td>
                     <td>
-                      <Button
-                        onClick={() => eliminaUtente(u)}
-                        variant="danger"
-                        size="sm"
-                      >
+                      <Button onClick={() => eliminaUtente(u)} variant="danger" size="sm">
                         <i className="bi bi-trash"></i>
                       </Button>
                     </td>

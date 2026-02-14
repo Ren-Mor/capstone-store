@@ -5,9 +5,9 @@ import { useSelector } from "react-redux";
 import "../App.css";
 
 function MyNav() {
-  const CartContent = useSelector((state) => state.cart.content);
-  const tokenStatus = useSelector((state) => state.login.token);
-  const user = useSelector((state) => state.login.user);
+  const CartContent = useSelector((state) => state.cart.cart.content);
+  const tokenStatus = useSelector((state) => state.user.login.token);
+  const user = useSelector((state) => state.user.login);
 
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
@@ -39,52 +39,22 @@ function MyNav() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav ">
           <Nav className="gap-2 mx-2">
-            <NavLink
-              to="/prodotti/cpu"
-              className={({ isActive }) =>
-                isActive ? "nav-link active" : "nav-link"
-              }
-            >
+            <NavLink to="/prodotti/cpu" className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}>
               Processori
             </NavLink>
-            <NavLink
-              to="/prodotti/gpu"
-              className={({ isActive }) =>
-                isActive ? "nav-link active" : "nav-link"
-              }
-            >
+            <NavLink to="/prodotti/gpu" className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}>
               Schede grafiche
             </NavLink>
-            <NavLink
-              to="/prodotti/psu"
-              className={({ isActive }) =>
-                isActive ? "nav-link active" : "nav-link"
-              }
-            >
+            <NavLink to="/prodotti/psu" className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}>
               Alimentatori
             </NavLink>
-            <NavLink
-              to="/prodotti/ram"
-              className={({ isActive }) =>
-                isActive ? "nav-link active" : "nav-link"
-              }
-            >
+            <NavLink to="/prodotti/ram" className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}>
               Memorie
             </NavLink>
-            <NavLink
-              to="/prodotti/mb"
-              className={({ isActive }) =>
-                isActive ? "nav-link active" : "nav-link"
-              }
-            >
+            <NavLink to="/prodotti/mb" className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}>
               Schede madri
             </NavLink>
-            <NavLink
-              to="/prodotti/case"
-              className={({ isActive }) =>
-                isActive ? "nav-link active" : "nav-link"
-              }
-            >
+            <NavLink to="/prodotti/case" className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}>
               Case
             </NavLink>
           </Nav>
@@ -108,11 +78,7 @@ function MyNav() {
               <Nav className="d-flex flex-row gap-4 align-items-center">
                 <NavLink to="/cart" className="position-relative">
                   <i className="bi bi-cart-fill fs-4"></i>
-                  <Badge
-                    bg="danger"
-                    pill
-                    className="position-absolute top-10 start-90 translate-middle "
-                  >
+                  <Badge bg="danger" pill className="position-absolute top-10 start-90 translate-middle ">
                     {CartContent.length}
                   </Badge>
                 </NavLink>
@@ -123,11 +89,7 @@ function MyNav() {
                   </NavLink>
                 ) : (
                   <Nav className="d-flex align-items-center text-decoration-none">
-                    <i
-                      disabled={!user}
-                      onClick={linkToProfile}
-                      className="bi bi-person-circle fs-4"
-                    ></i>
+                    <i disabled={!user} onClick={linkToProfile} className="bi bi-person-circle fs-4"></i>
 
                     <Link className="text-decoration-none" to="/confirm-logout">
                       <span className="text-white access ms-2">Log out</span>

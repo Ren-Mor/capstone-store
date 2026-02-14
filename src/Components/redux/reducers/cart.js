@@ -3,21 +3,10 @@ const initialState = {
     content: [],
     cartTotal: 0,
   },
-  login: { token: null, user: null },
 };
 
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "SET_LOGIN":
-      return {
-        ...state,
-        login: { token: action.payload.token, user: action.payload.user },
-      };
-    case "LOGOUT":
-      return {
-        ...state,
-        login: { token: null, user: null },
-      };
     case "ADD_TO_CART":
       return {
         ...state,
@@ -34,21 +23,11 @@ const cartReducer = (state = initialState, action) => {
         cart: {
           ...state.cart,
           content: state.cart.content.filter((_, i) => i !== action.payload),
-          cartTotal:
-            state.cart.cartTotal - (removedProduct ? removedProduct.prezzo : 0),
+          cartTotal: state.cart.cartTotal - (removedProduct ? removedProduct.prezzo : 0),
         },
       };
     }
-    case "SET_USER": {
-      const updatedUser = action.payload;
-      return {
-        ...state,
-        login: {
-          ...state.login,
-          user: updatedUser,
-        },
-      };
-    }
+
     default:
       return state;
   }
