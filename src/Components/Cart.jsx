@@ -4,7 +4,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import { useDispatch, useSelector } from "react-redux";
 
 const Cart = () => {
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.cart.cart);
 
   const dispatch = useDispatch();
   const removeFromCart = (i) => {
@@ -18,10 +18,7 @@ const Cart = () => {
           <ListGroup className="w-100 ">
             {cart.content.length > 0 ? (
               cart.content.map((item, i) => (
-                <ListGroup.Item
-                  key={i}
-                  className="my-4 bg-dark text-white border-0 text-center text-lg-start"
-                >
+                <ListGroup.Item key={i} className="my-4 bg-dark text-white border-0 text-center text-lg-start">
                   <Button
                     className="btn btn-danger me-auto"
                     variant="danger"
@@ -38,9 +35,7 @@ const Cart = () => {
                     alt="product"
                   />
                   <Card.Text className="d-inline-block">{item.nome}</Card.Text>
-                  <Card.Text className="d-inline-block ms-5">
-                    {item.prezzo}€
-                  </Card.Text>
+                  <Card.Text className="d-inline-block ms-5">{item.prezzo}€</Card.Text>
                 </ListGroup.Item>
               ))
             ) : (
@@ -53,10 +48,7 @@ const Cart = () => {
             )}
           </ListGroup>
           <div className="text-center fw-bold mt-3">
-            Il totale del carrello è:{" "}
-            <span className="text-danger">
-              {parseFloat(cart.cartTotal).toFixed(2)} €
-            </span>
+            Il totale del carrello è: <span className="text-danger">{parseFloat(cart.cartTotal).toFixed(2)} €</span>
             {cart.content.length > 0 && (
               <NavLink to="checkout">
                 <Button className="btn btn-danger ms-3">Checkout</Button>

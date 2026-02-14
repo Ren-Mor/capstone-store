@@ -2,7 +2,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 const AdminProfile = function () {
-  const user = useSelector((state) => state.login.user);
+  const user = useSelector((state) => state.user.login.user);
   if (!user) {
     return (
       <Container className="my-5 py-5 text-center">
@@ -26,10 +26,7 @@ const AdminProfile = function () {
             <Row>
               <ul className="list-unstyled">
                 <li>
-                  <Link
-                    to={"/updateuser"}
-                    className="text-decoration-none text-black fw-bold"
-                  >
+                  <Link to={"/updateuser"} className="text-decoration-none text-black fw-bold">
                     Modifica dati profilo
                   </Link>
                 </li>
@@ -45,10 +42,7 @@ const AdminProfile = function () {
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/backoffice"
-                    className="text-decoration-none text-black fw-bold"
-                  >
+                  <Link to="/backoffice" className="text-decoration-none text-black fw-bold">
                     Back Office
                   </Link>
                 </li>
